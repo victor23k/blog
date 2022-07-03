@@ -2,8 +2,22 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/future/image";
 import titlePic from "../public/victor.png";
+import postsData from "../posts.json";
+import Link from "next/link";
+const { posts } = postsData;
 
-const Home: NextPage = () => {
+export function getStaticProps() {
+  return {
+    props: {
+      posts: posts.map((post) => ({
+        ...post,
+        url: `${new Date(post.date).getFullYear()}/${post.id}`,
+      })),
+    },
+  };
+}
+
+const Home: NextPage = ({ posts }) => {
   return (
     <div>
       <Head>
@@ -23,6 +37,15 @@ const Home: NextPage = () => {
         <h1>Víctor</h1>
 
         <p>Here you'll find things I learn and want to share 😄</p>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <Link href={post.url}>
+                <a>{post.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   );
