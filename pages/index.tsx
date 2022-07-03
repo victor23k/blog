@@ -19,7 +19,7 @@ export function getStaticProps() {
 
 const Home: NextPage = ({ posts }) => {
   return (
-    <div>
+    <>
       <Head>
         <title>Víctor's Blog</title>
         <meta name="description" content="Blog where Víctor writes stuff" />
@@ -37,17 +37,25 @@ const Home: NextPage = ({ posts }) => {
         <h1>Víctor</h1>
 
         <p>Here you'll find things I learn and want to share 😄</p>
-        <ul>
+        <div style={{ paddingTop: "4rem" }}>
           {posts.map((post) => (
-            <li key={post.id}>
-              <Link href={post.url}>
-                <a>{post.title}</a>
-              </Link>
-            </li>
+            <Link key={post.id} href={post.url}>
+              <article className="postLi">
+                <span style={{ fontWeight: "bold" }}>{post.title}</span>
+                <span style={{ fontSize: "0.7rem", color: "grey" }}>
+                  {post.date}
+                </span>
+              </article>
+            </Link>
           ))}
-        </ul>
+        </div>
       </main>
-    </div>
+
+      <footer>
+        <span>github</span>
+        <span>linkedin</span>
+      </footer>
+    </>
   );
 };
 

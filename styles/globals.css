@@ -15,12 +15,45 @@ a {
   box-sizing: border-box;
 }
 
+nav {
+  padding: 10px 0 10px 5px;
+}
+
+nav > * {
+  display: inline-block; 
+  padding: 6px 10px;
+}
+
 main {
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  max-height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+.postLi {
+  padding: 1rem;
+  border: thin solid lightgrey;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+span + span {
+  margin-left: 5rem;
 }
