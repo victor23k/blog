@@ -42,8 +42,16 @@ const Home: NextPage = ({ posts }) => {
       </main>
 
       <footer>
-        <span>github</span>
-        <span>linkedin</span>
+        <a className="src" target="_blank" href="https://github.com/victor23k">
+          github
+        </a>
+        <a
+          className="src"
+          target="_blank"
+          href="https://linkedin.com/in/victorfdezfdez"
+        >
+          linkedin
+        </a>
       </footer>
     </>
   );
