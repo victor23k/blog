@@ -1,6 +1,11 @@
 {
   "posts" : [
     {
+      "id": "wsl_server_connect_via_windows",
+      "date": "September 26, 2023",
+      "title": "Access server in WSL through Windows network"
+    },
+    {
       "id": "hello-world",
       "date": "July 3, 2022",
       "title": "First post"
