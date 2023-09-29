@@ -1,9 +1,19 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  ReactNode,
+  FunctionComponent,
+} from "react";
 
 const enum Theme {
   Dark = "dark",
   Light = "light",
 }
+
+type Children = {
+  children: ReactNode;
+};
 
 const browserThemePreference = () => {
   if (
@@ -26,7 +36,7 @@ const ThemeContext = createContext({
   toggleTheme: () => {},
 });
 
-const ThemeProvider = (props) => {
+const ThemeProvider: FunctionComponent<Children> = ({ children }) => {
   const [theme, setTheme] = useState(Theme.Light);
   const toggleTheme = () => {
     const newTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
@@ -56,7 +66,7 @@ const ThemeProvider = (props) => {
   return (
     <>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        {props.children}
+        {children}
       </ThemeContext.Provider>
     </>
   );

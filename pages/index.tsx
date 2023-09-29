@@ -2,23 +2,30 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/future/image";
 import titlePic from "../public/victor.png";
-import Posts from "../components/posts";
+import { Posts, Post } from "../components/posts";
 
 import postsData from "../posts.json";
 const { posts } = postsData;
 
+interface Props {
+  posts: Post[];
+}
+
 export function getStaticProps() {
   return {
     props: {
-      posts: posts.map((post) => ({
-        ...post,
-        url: `${new Date(post.date).getFullYear()}/${post.id}`,
-      })),
+      posts: posts.map(
+        (post) =>
+          ({
+            ...post,
+            url: `${new Date(post.date).getFullYear()}/${post.id}`,
+          } as Post)
+      ),
     },
   };
 }
 
-const Home: NextPage = ({ posts }) => {
+const Home: NextPage<Props> = ({ posts }: Props) => {
   return (
     <>
       <Head>

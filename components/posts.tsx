@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const Posts = ({ posts }) => {
+interface Props {
+  posts: Post[];
+}
+
+export type Post = {
+  id: string;
+  title: string;
+  url: string;
+  date: string;
+};
+
+export const Posts = ({ posts }: Props) => {
   const [expand, setExpand] = useState(3);
 
   return (
@@ -19,5 +30,3 @@ const Posts = ({ posts }) => {
     </div>
   );
 };
-
-export default Posts;
