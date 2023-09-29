@@ -1,6 +1,12 @@
 import Link from "next/link";
+import { FunctionComponent, ReactNode } from "react";
 
-const a: React.FC = ({ children, href }) => {
+interface Props {
+  children: ReactNode;
+  href: string;
+}
+
+const a: FunctionComponent<Props> = ({ children, href }) => {
   if (!href.startsWith("/")) {
     return (
       <a href={href} target={href.startsWith("#") ? "" : "_blank"}>
