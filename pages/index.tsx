@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/future/image";
+import Image from "next/image";
 import titlePic from "../public/victor.png";
 import { Posts, Post } from "../components/posts";
 
@@ -16,10 +16,10 @@ export function getStaticProps() {
     props: {
       posts: posts.map(
         (post) =>
-          ({
-            ...post,
-            url: `${new Date(post.date).getFullYear()}/${post.id}`,
-          } as Post)
+        ({
+          ...post,
+          url: `${new Date(post.date).getFullYear()}/${post.id}`,
+        } as Post)
       ),
     },
   };

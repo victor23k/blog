@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <nav>
         <Link href="/">
-          <a>victor</a>
+          victor
         </Link>
 
         <a
