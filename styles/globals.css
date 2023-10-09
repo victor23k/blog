@@ -77,15 +77,7 @@ footer > * {
   align-items: baseline;
 }
 
-span + span {
-  margin-left: 5rem;
-}
-
 button {
   border: none;
   background: transparent;
-}
-
-pre {
-    white-space: pre-wrap;
 }
