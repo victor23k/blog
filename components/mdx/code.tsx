@@ -30,7 +30,9 @@ const Code: FunctionComponent<CodeBlock> = ({ children, className }) => {
     <div className='codeBlock'> 
       <p>
         <span>{language}</span>
-        <button onClick={copyCode}>copy</button>
+        <button onClick={copyCode}>copy
+        <span className='copyTooltip' role='alert'>Copied</span>
+        </button>
       </p>
       <SyntaxHighlighter language={language} style={gruvboxDark} wrapLongLines>
         {children}

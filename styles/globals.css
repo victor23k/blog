@@ -121,15 +121,7 @@ button {
   margin-right: 0px;
   margin-left: auto;
   cursor: pointer;
-}
-
-.codeBlock button:hover {
-  transition: 1s ease-in-out;
-  background: rgb(70,40,40);
-}
-
-.codeBlock button:active {
-  background: #00FF00;
+  position: relative;
 }
 
 .codeBlock p{
@@ -137,6 +129,28 @@ button {
   align-items: center;
   padding-left: 6.5px;
   border: 2px ridge;
+  margin-bottom: 0px;
+}
+
+.copyTooltip {
+  position: absolute;
+  visibility: collapse;
+  color: #fff;
+  background-color: #333;
+  top: -3.5em;
+  left: -1rem;
+  font-size: 0.8em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 8px;
+  margin: 5px;
+  margin-left: 5px;
+  z-index: 1000;
+  cursor: default;
+}
+
+button:focus > .copyTooltip {
+  visibility: visible;
 }
 
 pre {
