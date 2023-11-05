@@ -4,11 +4,11 @@ import React, {
   useState,
   ReactNode,
   FunctionComponent,
-} from "react";
+} from 'react';
 
 const enum Theme {
-  Dark = "dark",
-  Light = "light",
+  Dark = 'dark',
+  Light = 'light',
 }
 
 type Children = {
@@ -17,9 +17,9 @@ type Children = {
 
 const browserThemePreference = () => {
   if (
-    typeof window !== "undefined" &&
+    typeof window !== 'undefined' &&
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia('(prefers-color-scheme: dark)').matches
   ) {
     return Theme.Dark;
   } else {
@@ -28,11 +28,11 @@ const browserThemePreference = () => {
 };
 
 const isThemeLocalStorageEmpty = () => {
-  return localStorage.getItem("theme") == null;
+  return localStorage.getItem('theme') == null;
 };
 
 const ThemeContext = createContext({
-  theme: "",
+  theme: '',
   toggleTheme: () => {},
 });
 
@@ -41,16 +41,16 @@ const ThemeProvider: FunctionComponent<Children> = ({ children }) => {
   const toggleTheme = () => {
     const newTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
   const initialTheme = () => {
     if (isThemeLocalStorageEmpty()) {
       const theme = browserThemePreference();
-      localStorage.setItem("theme", theme);
+      localStorage.setItem('theme', theme);
       setTheme(theme);
     } else {
-      const theme = localStorage.getItem("theme")!;
+      const theme = localStorage.getItem('theme')!;
       setTheme(theme as Theme);
     }
   };
@@ -59,8 +59,8 @@ const ThemeProvider: FunctionComponent<Children> = ({ children }) => {
 
   useEffect(() => {
     const oldTheme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
-    document!.querySelector("body")!.classList.remove(oldTheme);
-    document!.querySelector("body")!.classList.add(theme);
+    document!.querySelector('body')!.classList.remove(oldTheme);
+    document!.querySelector('body')!.classList.add(theme);
   }, [theme]);
 
   return (

@@ -107,4 +107,38 @@ footer > * {
 button {
   border: none;
   background: transparent;
+  color: inherit;
+}
+
+.codeBlock {
+  background-color: rgb(40,40,40);
+  color: rgb(235, 219, 178);
+}
+
+.codeBlock button{
+  display: block;
+  border-left: 2px ridge;
+  margin-right: 0px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.codeBlock button:hover {
+  transition: 1s ease-in-out;
+  background: rgb(70,40,40);
+}
+
+.codeBlock button:active {
+  background: #00FF00;
+}
+
+.codeBlock p{
+  display: flex;
+  align-items: center;
+  padding-left: 6.5px;
+  border: 2px ridge;
+}
+
+pre {
+  margin-top: 0;
 }

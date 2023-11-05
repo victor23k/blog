@@ -1,15 +1,13 @@
-import Link from "next/link";
-import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import Link from 'next/link';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     <header>
       <nav>
-        <Link href="/">
-          victor
-        </Link>
+        <Link href="/">victor</Link>
 
         <a
           className="src"
@@ -19,7 +17,7 @@ const Header = () => {
           source
         </a>
       </nav>
-      <button onClick={toggleTheme}>{theme === "dark" ? "🌝" : "🌚"}</button>
+      <button onClick={toggleTheme}>{theme === 'dark' ? '🌝' : '🌚'}</button>
     </header>
   );
 };

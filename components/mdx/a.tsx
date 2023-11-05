@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { FunctionComponent, ReactNode } from "react";
+import Link from 'next/link';
+import { FunctionComponent, ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
@@ -7,9 +7,9 @@ interface Props {
 }
 
 const a: FunctionComponent<Props> = ({ children, href }) => {
-  if (!href.startsWith("/")) {
+  if (!href.startsWith('/')) {
     return (
-      <a href={href} target={href.startsWith("#") ? "" : "_blank"}>
+      <a href={href} target={href.startsWith('#') ? '' : '_blank'}>
         {children}
       </a>
     );
