@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import titlePic from "../public/victor.png";
-import { Posts, Post } from "../components/posts";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import titlePic from '../public/victor.png';
+import { Posts, Post } from '../components/posts';
 
-import postsData from "../posts.json";
+import postsData from '../posts.json';
 const { posts } = postsData;
 
 interface Props {
@@ -16,10 +16,10 @@ export function getStaticProps() {
     props: {
       posts: posts.map(
         (post) =>
-        ({
-          ...post,
-          url: `${new Date(post.date).getFullYear()}/${post.id}`,
-        } as Post)
+          ({
+            ...post,
+            url: `${new Date(post.date).getFullYear()}/${post.id}`,
+          }) as Post
       ),
     },
   };
@@ -34,32 +34,19 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <div className="mainpage">
         <Image
           src={titlePic}
           width={200}
           height={200}
           alt="Sunset at sea"
-          style={{ borderRadius: "50%" }}
+          style={{ borderRadius: '50%' }}
         ></Image>
         <h1>Víctor</h1>
 
         <p>Here you&apos;ll find things I learn and want to share 😄</p>
         <Posts posts={posts} />
-      </main>
-
-      <footer>
-        <a className="src" target="_blank" href="https://github.com/victor23k">
-          github
-        </a>
-        <a
-          className="src"
-          target="_blank"
-          href="https://linkedin.com/in/victorfdezfdez"
-        >
-          linkedin
-        </a>
-      </footer>
+      </div>
     </>
   );
 };
